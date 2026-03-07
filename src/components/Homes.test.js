@@ -1,12 +1,14 @@
 import React from 'react'
 import Homes from './Homes'
-import {getAllByTestId, getByTestId, render} from '@testing-library/react'
+import {act, getAllByTestId, getByTestId, render} from '@testing-library/react'
 
 let container = null
 
-beforeEach(()=>{
+beforeEach(async()=>{
 
     container = render(<Homes/>).container
+
+    await act(async()=>{}) // act is used to cover for useEffect in react
 })
 
 
