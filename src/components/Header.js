@@ -4,6 +4,7 @@ export default function Header (){
 
 
     return (
+    <div>
         <nav className="py-3 border-bottom navbar navbar-expand navbar-light">
 
         <a data-testid="logo" href="/#" className="navbar-brand">
@@ -24,5 +25,17 @@ export default function Header (){
         </div>
 
         </nav>
+
+
+        <div className="m-0 px-4 py-2 container-fluid mw-100 border-bottom container">
+            <button type="button" className="text no-wrap mr-4 py-1 btn btn-outline-secondary" data-testid="home-type">Home type </button>
+            <button  className="text no-wrap mr-4 py-1 btn btn-outline-secondary" data-testid="dates">Dates</button>
+            <button className="text no-wrap mr-4 py-1 btn btn-outline-secondary"  data-testid="guests">Guests </button>
+            <button  className="text no-wrap mr-4 py-1 btn btn-outline-secondary" data-testid="price">Price </button>
+            <button  className="text no-wrap mr-4 py-1 btn btn-outline-secondary" data-testid="rooms">Rooms</button>
+            <button className="text no-wrap mr-4 py-1 btn btn-outline-secondary" data-testid="amenities">Amenities</button>
+        </div>
+
+    </div>
     )
 }
