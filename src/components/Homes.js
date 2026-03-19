@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import apiClient from './services/apiClient'
 import bookingDialogService from './services/bookingDialogService'
-
+import {Dialog,DialogContent} from '@material-ui/core'
 
 export default function Homes (){
     
  
 
 const [homesState,setHomesState] = useState([])
+const [bookingDialogState,setBookingDialogState] = useState({open:false})
 
 useEffect(()=>{
 
@@ -44,6 +45,13 @@ setHomesState(homesData)
     })
 
 
+},[])
+
+useEffect(()=>{
+
+  bookingDialogService.events$.subscribe((state)=>(setBookingDialogState(state)))
+
+  return ()=> PushSubscriptionOptions.unsubscribe()
 },[])
 
 //let homes;
@@ -92,6 +100,16 @@ setHomesState(homesData)
          <div className="row">
             {homes}
          </div>
+          <Dialog 
+          maxWidth="xs"
+          fullWidth={true}
+          open={bookingDialogState.open}
+              onClose={()=>bookingDialogService.close()}
+          >
+            <DialogContent>
+              <HomeBooking/>
+            </DialogContent>
+          </Dialog>
          </div>
         </>
     )
